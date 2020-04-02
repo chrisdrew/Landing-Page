@@ -22,7 +22,6 @@
  * Const Variables
  * 
 */
-const navItems = document.getElementsByTagName('section');
 const sections = document.getElementsByTagName('section');
 const backTop  = document.getElementById('back_top');
 
@@ -70,10 +69,10 @@ function showHideTopButton(){
 // build the nav
 
 function buildNav() {
-    for (let i = 0; i <= navItems.length - 1; i++) {
-        if (navItems[i].hasAttribute('id')) {
-            navID = navItems[i].getAttribute('id');
-            navName = navItems[i].getAttribute('data-nav');
+    for (let i = 0; i <= sections.length - 1; i++) {
+        if (sections[i].hasAttribute('id')) {
+            navID = sections[i].getAttribute('id');
+            navName = sections[i].getAttribute('data-nav');
             const templateNav = `
                 <li>
                 <a href="#${navID}" class="menu__link" id="section_${i+1}">
