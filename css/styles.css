@@ -222,9 +222,20 @@ section.your-active-class .landing__container::after {
     }
 }
 
-/* Chris Drews add ons */
 
-// animation for the nav
+
+.header
+{
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+ 
+    -webkit-transition-timing-function: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
+    transition-timing-function: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
+ 
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+}
+ 
 .hide_nav
 {
     -webkit-transform: translateY( -100% );
@@ -233,6 +244,32 @@ section.your-active-class .landing__container::after {
 }
 
 .show_nav
+{
+    -webkit-transform: translateY( 0% );
+    -ms-transform: translateY( 0% );
+    transform: translateY( 0% );
+}
+
+.back_to_top{
+    background-color: aliceblue;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    width: 3em;
+    text-align: center;
+    padding: 5px;
+    right: 10%;
+}
+
+.hide_top
+{
+    -webkit-transform: translateY( 100% );
+    -ms-transform: translateY( 100% );
+    transform: translateY( 100% );
+}
+
+.show_top
 {
     -webkit-transform: translateY( 0% );
     -ms-transform: translateY( 0% );

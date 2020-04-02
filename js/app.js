@@ -24,6 +24,7 @@
 */
 const navItems = document.getElementsByTagName('section');
 const sections = document.getElementsByTagName('section');
+const backTop  = document.getElementById('back_top');
 
 /**
  * let Variables
@@ -39,6 +40,26 @@ let isScrolling;
  * Start Helper Functions
  * 
 */
+function scrollToTop(){
+    window.scrollTo({
+        top: 100,
+        left: 100,
+        behavior: 'smooth'
+    });
+}
+
+function showHideTopButton(){
+    var a = document.getElementsByClassName('main__hero');
+
+    console.log('a' + a.offsetHeight);
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backTop.classList.remove('hide_top');
+        backTop.classList.add('show_top');
+      } else {
+        backTop.classList.remove('show_top');
+        backTop.classList.add('hide_top');
+      }
+}
 
 /**
  * End Helper Functions
@@ -47,9 +68,6 @@ let isScrolling;
 */
 
 // build the nav
-// ************************
-// clean up code later
-// ************************
 
 function buildNav() {
     for (let i = 0; i <= navItems.length - 1; i++) {
@@ -79,8 +97,6 @@ function addActive(item){
     return
 }
 
-// Scroll to anchor ID using scrollTO event
-
 /**
  * End Main Functions
  * Begin Events
@@ -107,12 +123,11 @@ for (const button of buttons) {
 // This checks if user is scrolling, then will add and remove the correct class
 function animateHeader(){
     // Clear our timeout throughout the scroll
-    window.clearTimeout( isScrolling );
-    // Set a timeout to run after scrolling ends
-    isScrolling = setTimeout(function() {
+	window.clearTimeout( isScrolling );
+	// Set a timeout to run after scrolling ends
+	isScrolling = setTimeout(function() {
 
-        // Run the callback
-        console.log( 'Scrolling has stopped.');
+		// Run the callback
         header.classList.remove('hide_nav');
         header.classList.add('show_nav');
 
@@ -125,29 +140,33 @@ function animateHeader(){
 // This adds and removes active classes for the sections
 function scrollingStuff(){
     animateHeader();
+    showHideTopButton();
     
     // change section active class
     for (section of sections){
         const bonding = section.getBoundingClientRect();
-        console.log(window.innerHeight/4);
         // checking whether fully visible
         if(bonding.top >= 0 && bonding.bottom <= window.innerHeight) {
             section.classList.add('your-active-class');
         }else{
             section.classList.remove('your-active-class');
         }
+
         // checking for partial visibility
         if(bonding.top < window.innerHeight/2 && bonding.bottom >= window.innerHeight/2) {
-            console.log('Element is partially visible in screen');
             section.classList.add('your-active-class');
         }else{
             section.classList.remove('your-active-class');
 
         }
+
     }
 }
 
 // Setup isScrolling variable
 document.addEventListener('scroll', scrollingStuff);
+
+// The back to top button
+backTop.addEventListener('click', scrollToTop);
 
 // Set sections as active
