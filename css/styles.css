@@ -224,8 +224,7 @@ section.your-active-class .landing__container::after {
 
 
 
-.header
-{
+.header{
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
  
@@ -236,15 +235,13 @@ section.your-active-class .landing__container::after {
     transition-property: transform;
 }
  
-.hide_nav
-{
+.hide_nav{
     -webkit-transform: translateY( -100% );
     -ms-transform: translateY( -100% );
     transform: translateY( -100% );
 }
 
-.show_nav
-{
+.show_nav{
     -webkit-transform: translateY( 0% );
     -ms-transform: translateY( 0% );
     transform: translateY( 0% );
@@ -262,16 +259,18 @@ section.your-active-class .landing__container::after {
     right: 10%;
 }
 
-.hide_top
-{
+.hide_top{
     -webkit-transform: translateY( 100% );
     -ms-transform: translateY( 100% );
     transform: translateY( 100% );
 }
 
-.show_top
-{
+.show_top{
     -webkit-transform: translateY( 0% );
     -ms-transform: translateY( 0% );
     transform: translateY( 0% );
+}
+
+.navbar__menu .menu__active{
+    background-color: cornflowerblue;
 }
