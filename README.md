@@ -1,5 +1,5 @@
 # Landing-Page
-project goal
+project goals
 - Build nav with how many sections are on the website.
 - When each section is in view apply a class so user knows which one is current.
 - Nav when clicked brings user to correct section.
